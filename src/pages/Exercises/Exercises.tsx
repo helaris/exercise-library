@@ -6,11 +6,14 @@ import {
   IonLabel,
   IonList,
   IonPage,
+  IonSpinner,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import BottomNavigation from "../../components/BottomNavigation";
 import backend from "../../api";
+
+import "./Exercises.css";
 
 interface exerciseInfo {
   category: string[];
@@ -24,18 +27,17 @@ interface exerciseInfo {
 
 const Exercises: React.FC = () => {
   const [exercises, setExercises] = useState<exerciseInfo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const request = await backend.get<exerciseInfo[]>("/api/exercises");
       setExercises(request.data);
-      console.log(request.data);
+      setIsLoading(false);
       return request;
     }
     fetchData();
   }, []);
-
-  console.log(exercises);
 
   return (
     <IonPage>
@@ -45,6 +47,9 @@ const Exercises: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        {isLoading && (
+          <IonSpinner className="position-center" name="crescent" />
+        )}
         <IonList>
           {exercises.map((exercise) => (
             <IonItem

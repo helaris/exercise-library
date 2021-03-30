@@ -1,0 +1,7 @@
+{
+  "name": "workoutApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

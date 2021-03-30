@@ -5,15 +5,14 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import BottomNavigation from "../components/BottomNavigation";
-import "./Home.css";
+import BottomNavigation from "../../components/BottomNavigation";
 
-const Home: React.FC = () => {
+const Workouts: React.FC = () => {
   return (
     <IonPage>
       <IonHeader className="ion-padding">
         <IonToolbar>
-          <IonTitle>Workout Library</IonTitle>
+          <IonTitle>Workouts</IonTitle>
         </IonToolbar>
       </IonHeader>
       {/* <IonContent fullscreen></IonContent> */}
@@ -22,4 +21,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Workouts;

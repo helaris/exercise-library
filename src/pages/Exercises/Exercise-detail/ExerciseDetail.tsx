@@ -9,9 +9,11 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonImg,
+  // IonImg,
   IonSpinner,
 } from "@ionic/react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 import "../Exercises.css";
 
@@ -41,6 +43,10 @@ const ExerciseDetail: React.FC = () => {
     fetchData();
   }, [id]);
 
+  const items = exercise?.images.map((i) => (
+    <img key={i} src={i} alt={exercise?.title} />
+  ));
+
   return (
     <IonPage>
       <IonHeader className="ion-padding">
@@ -53,18 +59,37 @@ const ExerciseDetail: React.FC = () => {
       </IonHeader>
       <IonContent>
         {isLoading && <IonSpinner name="dots" className="position-center" />}
-        {exercise?.images.map((i) => (
-          <IonImg key={i} src={i} alt={exercise?.title} />
-        ))}
+        {/* {exercise?.images.map((i) => (
+          <img key={i} src={i} alt={exercise?.title} />
+        ))} */}
+        <AliceCarousel
+          autoPlay
+          autoPlayStrategy="none"
+          autoPlayInterval={500}
+          animationDuration={0}
+          // animationType="fadeout"
+          infinite
+          touchTracking={false}
+          disableDotsControls
+          disableButtonsControls
+          items={items}
+        />
+
         {typeof exercise?.description === "string" ? (
-          <p className="ion-padding">{exercise?.description}</p>
+          <section className="ion-padding">
+            <h3>Exercise description:</h3>
+            <p className="l-height">{exercise?.description}</p>
+          </section>
         ) : (
-          exercise?.description.map((e: any) => (
-            <section className="ion-padding">
-              <h3>{e?.title}</h3>
-              <p>{e?.description}</p>
-            </section>
-          ))
+          <section className="ion-padding">
+            <h3>Exercise Description:</h3>
+            {exercise?.description.map((e: any) => (
+              <section>
+                <h3>{e?.title}</h3>
+                <p className="l-height">{e?.description}</p>
+              </section>
+            ))}
+          </section>
         )}
       </IonContent>
     </IonPage>

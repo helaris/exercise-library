@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import {
+  // IonCard,
+  // IonCardHeader,
+  // IonCardSubtitle,
+  // IonCardTitle,
+  // IonCol,
   IonContent,
+  // IonGrid,
   IonHeader,
-  IonItem,
-  IonLabel,
-  IonList,
+  // IonButton,
   IonPage,
+  // IonRow,
   IonSpinner,
   IonTitle,
   IonToolbar,
@@ -14,6 +19,7 @@ import BottomNavigation from "../../components/BottomNavigation";
 import backend from "../../api";
 
 import "./Exercises.css";
+import ExerciseCard from "./ExerciseCard";
 
 interface exerciseInfo {
   category: string[];
@@ -50,16 +56,15 @@ const Exercises: React.FC = () => {
         {isLoading && (
           <IonSpinner className="position-center" name="crescent" />
         )}
-        <IonList>
-          {exercises.map((exercise) => (
-            <IonItem
-              key={exercise._id}
-              routerLink={`/exercise/${exercise._id}`}
-            >
-              <IonLabel>{exercise.title}</IonLabel>
-            </IonItem>
-          ))}
-        </IonList>
+        {exercises.map((exercise) => (
+          <ExerciseCard
+            _id={exercise._id}
+            title={exercise.title}
+            image={exercise.images[0]}
+            bodyPart={exercise.bodyPart}
+            equipment={exercise.equipment}
+          />
+        ))}
       </IonContent>
       <BottomNavigation />
     </IonPage>

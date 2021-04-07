@@ -58,6 +58,7 @@ const Exercises: React.FC = () => {
         )}
         {exercises.map((exercise) => (
           <ExerciseCard
+            key={exercise._id}
             _id={exercise._id}
             title={exercise.title}
             image={exercise.images[0]}

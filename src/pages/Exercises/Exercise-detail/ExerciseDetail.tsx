@@ -11,6 +11,7 @@ import {
   IonToolbar,
   // IonImg,
   IonSpinner,
+  IonImg,
 } from "@ionic/react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -44,12 +45,12 @@ const ExerciseDetail: React.FC = () => {
   }, [id]);
 
   const items = exercise?.images.map((i) => (
-    <img key={i} src={i} alt={exercise?.title} />
+    <IonImg className="ion-padding" key={i + 1} src={i} alt={exercise?.title} />
   ));
 
   return (
     <IonPage>
-      <IonHeader className="ion-padding">
+      <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref="/exercises" />
@@ -84,7 +85,7 @@ const ExerciseDetail: React.FC = () => {
           <section className="ion-padding">
             <h3>Exercise Description:</h3>
             {exercise?.description.map((e: any) => (
-              <section>
+              <section key={Date.now() + Math.random()}>
                 <h3>{e?.title}</h3>
                 <p className="l-height">{e?.description}</p>
               </section>

@@ -1,20 +1,16 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  // IonCard,
-  // IonCardHeader,
-  // IonCardSubtitle,
-  // IonCardTitle,
-  // IonCol,
+  IonButton,
+  IonButtons,
   IonContent,
-  // IonGrid,
   IonHeader,
-  // IonButton,
+  IonIcon,
   IonPage,
-  // IonRow,
   IonSpinner,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { filterOutline } from "ionicons/icons";
 import BottomNavigation from "../../components/BottomNavigation";
 import backend from "../../api";
 
@@ -47,9 +43,17 @@ const Exercises: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader className="ion-padding">
+      <IonHeader>
+        <IonToolbar className="ion-no-padding ion-no-margin">
+          <IonTitle>LOGO</IonTitle>
+        </IonToolbar>
         <IonToolbar>
           <IonTitle>Exercises</IonTitle>
+          <IonButtons slot="end">
+            <IonButton>
+              <IonIcon icon={filterOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>

@@ -9,7 +9,6 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  // IonImg,
   IonSpinner,
   IonImg,
 } from "@ionic/react";
@@ -44,8 +43,8 @@ const ExerciseDetail: React.FC = () => {
     fetchData();
   }, [id]);
 
-  const items = exercise?.images.map((i) => (
-    <IonImg className="ion-padding" key={i + 1} src={i} alt={exercise?.title} />
+  const imgs = exercise?.images.map((i, index) => (
+    <IonImg className="ion-padding" key={index} src={i} alt={exercise?.title} />
   ));
 
   return (
@@ -68,27 +67,31 @@ const ExerciseDetail: React.FC = () => {
           autoPlayStrategy="none"
           autoPlayInterval={500}
           animationDuration={0}
-          // animationType="fadeout"
           infinite
           touchTracking={false}
           disableDotsControls
           disableButtonsControls
-          items={items}
+          items={imgs}
         />
 
         {typeof exercise?.description === "string" ? (
           <section className="ion-padding">
-            <h3>Exercise description:</h3>
+            <h2>Exercise description:</h2>
             <p className="l-height">{exercise?.description}</p>
           </section>
         ) : (
           <section className="ion-padding">
-            <h3>Exercise Description:</h3>
-            {exercise?.description.map((e: any) => (
-              <section key={Date.now() + Math.random()}>
-                <h3>{e?.title}</h3>
+            <h2>Exercise Description:</h2>
+            {exercise?.description.map((e: any, index: any) => (
+              <>
+                <h3 key={index}>{e?.title}</h3>
                 <p className="l-height">{e?.description}</p>
-              </section>
+                {e?.exerciseTip && (
+                  <p className="l-height">
+                    <strong>Exercise Tip:</strong> {e?.exerciseTip}
+                  </p>
+                )}
+              </>
             ))}
           </section>
         )}

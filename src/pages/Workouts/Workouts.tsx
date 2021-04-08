@@ -1,3 +1,4 @@
+import React from "react";
 import {
   // IonContent,
   IonHeader,
@@ -10,7 +11,10 @@ import BottomNavigation from "../../components/BottomNavigation";
 const Workouts: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader className="ion-padding">
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>LOGO</IonTitle>
+        </IonToolbar>
         <IonToolbar>
           <IonTitle>Workouts</IonTitle>
         </IonToolbar>

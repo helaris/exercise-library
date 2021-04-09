@@ -31,6 +31,15 @@ interface exerciseInfo {
   equipment: string;
 }
 
+const mockupChecklist = [
+  { value: "Back", searchVal: "back", isChecked: false },
+  { value: "Full-Body", searchVal: "full", isChecked: false },
+  { value: "Glutes/Butt", searchVal: "butt", isChecked: false },
+  { value: "Legs", searchVal: "legs", isChecked: false },
+  { value: "Abs", searchVal: "abs", isChecked: false },
+  { value: "Shoulders", searchVal: "shoulders", isChecked: false },
+];
+
 const Exercises: React.FC = () => {
   const [exercisesArr, setExercisesArr] = useState<exerciseInfo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -87,11 +96,12 @@ const Exercises: React.FC = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            <p>Modal</p>
-            <IonItem>
-              <IonLabel>Test</IonLabel>
-              <IonCheckbox value="test" slot="start" />
-            </IonItem>
+            {mockupChecklist.map(({ value, isChecked }, i) => (
+              <IonItem key={i}>
+                <IonLabel>{value}</IonLabel>
+                <IonCheckbox slot="end" value={value} checked={isChecked} />
+              </IonItem>
+            ))}
           </IonContent>
         </IonModal>
       </IonContent>

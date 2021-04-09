@@ -10,6 +10,9 @@ import {
   IonTitle,
   IonToolbar,
   IonModal,
+  IonCheckbox,
+  IonItem,
+  IonLabel,
 } from "@ionic/react";
 import { closeOutline, filterOutline } from "ionicons/icons";
 import BottomNavigation from "../../components/BottomNavigation";
@@ -75,7 +78,7 @@ const Exercises: React.FC = () => {
         <IonModal isOpen={showModal}>
           <IonHeader>
             <IonToolbar>
-              <IonTitle>Filter</IonTitle>
+              <IonTitle>Filter Categories</IonTitle>
               <IonButtons slot="end">
                 <IonButton onClick={() => setShowModal(false)}>
                   <IonIcon icon={closeOutline} />
@@ -85,6 +88,10 @@ const Exercises: React.FC = () => {
           </IonHeader>
           <IonContent>
             <p>Modal</p>
+            <IonItem>
+              <IonLabel>Test</IonLabel>
+              <IonCheckbox value="test" slot="start" />
+            </IonItem>
           </IonContent>
         </IonModal>
       </IonContent>

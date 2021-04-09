@@ -19,19 +19,21 @@ interface CardProps {
 
 const ExerciseCard = (props: CardProps) => (
   <IonCard key={props._id} routerLink={`/exercise/${props._id}`}>
-    <img alt={props.title} src={props.image} className="try" />
+    <img alt={props.title} src={props.image} className="card-image-resize" />
     <IonCardHeader>
-      <IonCardTitle className="ion-text-center">{props.title}</IonCardTitle>
-      <IonGrid className="ion-text-center">
-        <IonRow>
+      <IonCardTitle className="ion-text-center card-title-size">
+        {props.title}
+      </IonCardTitle>
+      <IonGrid>
+        <IonRow className="ion-justify-content-center">
           <IonCol>
-            <IonCardSubtitle className="ion-padding-top">
+            <IonCardSubtitle>
               BODY PART: <br />
               {props.bodyPart}
             </IonCardSubtitle>
           </IonCol>
           <IonCol>
-            <IonCardSubtitle className="ion-padding-top">
+            <IonCardSubtitle>
               Equipment: <br />
               {props.equipment}
             </IonCardSubtitle>

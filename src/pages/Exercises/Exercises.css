@@ -9,13 +9,12 @@
   line-height: 1.5;
 }
 
-.try {
+.card-image-resize {
   width: 100%;
-  max-height: 300px;
+  max-height: 250px;
   object-fit: cover;
 }
 
-.my-custom-class {
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+.card-title-size {
+  font-size: 1rem;
 }

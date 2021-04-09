@@ -32,7 +32,9 @@ interface exerciseInfo {
 }
 
 const mockupChecklist = [
+  { value: "Arms", searchVal: "arms", isChecked: false },
   { value: "Back", searchVal: "back", isChecked: false },
+  { value: "Chest", searchVal: "chest", isChecked: false },
   { value: "Full-Body", searchVal: "full", isChecked: false },
   { value: "Glutes/Butt", searchVal: "butt", isChecked: false },
   { value: "Legs", searchVal: "legs", isChecked: false },

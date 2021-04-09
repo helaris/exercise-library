@@ -85,7 +85,9 @@ const ExerciseDetail: React.FC = () => {
             {exercise?.description.map((e: any, index: any) => (
               <>
                 <h3 key={index}>{e?.title}</h3>
-                <p className="l-height">{e?.description}</p>
+                <p key={index + 1} className="l-height">
+                  {e?.description}
+                </p>
                 {e?.exerciseTip && (
                   <p className="l-height">
                     <strong>Exercise Tip:</strong> {e?.exerciseTip}

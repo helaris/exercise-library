@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IonCard,
   IonCardHeader,
@@ -23,7 +22,7 @@ const ExerciseCard = (props: CardProps) => (
     <img alt={props.title} src={props.image} className="try" />
     <IonCardHeader>
       <IonCardTitle className="ion-text-center">{props.title}</IonCardTitle>
-      <IonGrid>
+      <IonGrid className="ion-text-center">
         <IonRow>
           <IonCol>
             <IonCardSubtitle className="ion-padding-top">

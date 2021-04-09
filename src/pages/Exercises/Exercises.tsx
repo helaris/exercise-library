@@ -13,9 +13,9 @@ import {
 import { filterOutline } from "ionicons/icons";
 import BottomNavigation from "../../components/BottomNavigation";
 import backend from "../../api";
+import ExerciseCard from "./ExerciseCard";
 
 import "./Exercises.css";
-import ExerciseCard from "./ExerciseCard";
 
 interface exerciseInfo {
   category: string[];
@@ -28,13 +28,13 @@ interface exerciseInfo {
 }
 
 const Exercises: React.FC = () => {
-  const [exercises, setExercises] = useState<exerciseInfo[]>([]);
+  const [exercisesArr, setExercisesArr] = useState<exerciseInfo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const request = await backend.get<exerciseInfo[]>("/api/exercises");
-      setExercises(request.data);
+      setExercisesArr(request.data);
       setIsLoading(false);
       return request;
     }
@@ -60,7 +60,7 @@ const Exercises: React.FC = () => {
         {isLoading && (
           <IonSpinner className="position-center" name="crescent" />
         )}
-        {exercises.map((exercise) => (
+        {exercisesArr.map((exercise) => (
           <ExerciseCard
             key={exercise._id}
             _id={exercise._id}

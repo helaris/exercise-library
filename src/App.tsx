@@ -21,9 +21,10 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+
 import Exercises from "./pages/Exercises/Exercises";
 import Workouts from "./pages/Workouts/Workouts";
-import ExerciseDetail from "./pages/Exercises/Exercise-detail/ExerciseDetail";
+import ExerciseDetail from "./pages/Exercises/ExerciseDetail/ExerciseDetail";
 
 const App: React.FC = () => (
   <IonApp>

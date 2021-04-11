@@ -17,25 +17,25 @@ interface CardProps {
   equipment: string;
 }
 
-const ExerciseCard = (props: CardProps) => (
-  <IonCard key={props._id} routerLink={`/exercise/${props._id}`}>
-    <img alt={props.title} src={props.image} className="card-image-resize" />
+const ExerciseCard = ({_id, title, image, bodyPart, equipment}: CardProps) => (
+  <IonCard key={_id} routerLink={`/exercise/${_id}`}>
+    <img alt={title} src={image} className="card-image-resize" />
     <IonCardHeader>
       <IonCardTitle className="ion-text-center card-title-size">
-        {props.title}
+        {title}
       </IonCardTitle>
       <IonGrid>
         <IonRow className="ion-justify-content-center">
           <IonCol>
             <IonCardSubtitle>
               BODY PART: <br />
-              {props.bodyPart}
+              {bodyPart}
             </IonCardSubtitle>
           </IonCol>
           <IonCol>
             <IonCardSubtitle>
               Equipment: <br />
-              {props.equipment}
+              {equipment}
             </IonCardSubtitle>
           </IonCol>
         </IonRow>
@@ -45,7 +45,7 @@ const ExerciseCard = (props: CardProps) => (
       expand="full"
       fill="solid"
       className="ion-no-margin"
-      routerLink={`/exercise/${props._id}`}
+      routerLink={`/exercise/${_id}`}
     >
       View Details
     </IonButton>

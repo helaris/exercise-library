@@ -9,7 +9,7 @@ import {
 import BottomNavigation from "../components/BottomNavigation";
 import "./Home.css";
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <IonPage>
       <IonHeader className="ion-padding">

@@ -42,7 +42,7 @@ const mockupChecklist = [
   { value: "Shoulders", searchVal: "shoulders", isChecked: false },
 ];
 
-const Exercises: React.FC = () => {
+const Exercises = () => {
   const [exercisesArr, setExercisesArr] = useState<exerciseInfo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);

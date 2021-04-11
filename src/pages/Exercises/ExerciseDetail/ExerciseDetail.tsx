@@ -28,7 +28,7 @@ interface exerciseInfo {
   equipment: string;
 }
 
-const ExerciseDetail: React.FC = () => {
+const ExerciseDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [exercise, setExercise] = useState<exerciseInfo>();
   const [isLoading, setIsLoading] = useState(true);

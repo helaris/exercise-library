@@ -9,7 +9,7 @@ import {
 // import BottomNavigation from "../../components/BottomNavigation";
 import BottomNavigation from "../../components/BottomNavigation";
 
-const Workouts: React.FC = () => {
+const Workouts = () => {
   return (
     <IonPage>
       <IonHeader>

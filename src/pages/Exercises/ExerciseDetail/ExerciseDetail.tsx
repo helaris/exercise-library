@@ -83,9 +83,9 @@ const ExerciseDetail: React.FC = () => {
           <section className="ion-padding">
             <h2>Exercise Description:</h2>
             {exercise?.description.map((e: any, index: any) => (
-              <>
-                <h3 key={index}>{e?.title}</h3>
-                <p key={index + 1} className="l-height">
+              <section key={index}>
+                <h3 >{e?.title}</h3>
+                <p className="l-height">
                   {e?.description}
                 </p>
                 {e?.exerciseTip && (
@@ -93,7 +93,7 @@ const ExerciseDetail: React.FC = () => {
                     <strong>Exercise Tip:</strong> {e?.exerciseTip}
                   </p>
                 )}
-              </>
+              </section>
             ))}
           </section>
         )}

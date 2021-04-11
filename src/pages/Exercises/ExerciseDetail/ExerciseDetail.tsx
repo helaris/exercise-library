@@ -83,7 +83,7 @@ const ExerciseDetail: React.FC = () => {
           <section className="ion-padding">
             <h2>Exercise Description:</h2>
             {exercise?.description.map((e: any, index: any) => (
-              <section key={index + 1}>
+              <section key={index}>
                 <h3 >{e?.title}</h3>
                 <p className="l-height">
                   {e?.description}

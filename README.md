@@ -22,3 +22,16 @@ ionic serve
 ## Project Status
 
 This is a work in progress. Curently building a MVP product of the frontend. I'm using RestAPI I've built to show exercise data. Future plans are to create an api for Workouts.
+
+## Visuals so far
+
+## Visuals
+
+Exercise List Preview          |  Exercise Detail Preview
+:-------------------------:|:-------------------------:
+![Image of Order View](src/images/exercise-list.png)  |  ![Image of Checklist View](src/images/exercise-detail.png)
+
+
+Filter preview           | 
+:-------------------------:|
+![Image of Notes view](src/images/filter.png)  | 

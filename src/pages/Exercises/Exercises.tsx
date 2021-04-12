@@ -46,6 +46,7 @@ const Exercises = () => {
   const [exercisesArr, setExercisesArr] = useState<exerciseInfo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [test, setTest] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -56,6 +57,12 @@ const Exercises = () => {
     }
     fetchData();
   }, []);
+
+  const handleOnChange = (e: any): void => {
+    setTest(e.target.value);
+  };
+
+  console.log(test);
 
   return (
     <IonPage>
@@ -98,10 +105,10 @@ const Exercises = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            {mockupChecklist.map(({ value, isChecked }, i) => (
+            {mockupChecklist.map(({ value, isChecked, searchVal }, i) => (
               <IonItem key={i}>
                 <IonLabel>{value}</IonLabel>
-                <IonCheckbox slot="end" value={value} checked={isChecked} />
+                <IonCheckbox slot="end" value={searchVal} onClick={handleOnChange}/>
               </IonItem>
             ))}
           </IonContent>
